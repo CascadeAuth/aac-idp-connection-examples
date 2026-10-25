@@ -3,7 +3,8 @@
 What you end up with: an Auth0 application your people sign in to with the
 AAC command-line tool, an Auth0 role whose holders get AAC roles, a post-login
 Action that puts the role names into the ID token, and the three values that
-complete [`auth0.json`](auth0.json).
+complete [`auth0.json`](auth0.json). Not yet field-verified; the live run
+updates this line.
 
 ## 1. Create the application
 
