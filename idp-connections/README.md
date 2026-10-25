@@ -3,14 +3,15 @@
 Each file is a complete input for `aac sso register-idp --file`: the
 connection between one AAC tenant and the identity provider its people sign
 in with. Copy the file for your provider, replace every `<PLACEHOLDER>` with
-the value from your provider's console, and register it. The
-[CLI guide](https://docs.cascadeauth.com/cli/) walks through each provider's
-console settings; `aac sso register-idp --help` lists every field.
+the value from your provider's console, and register it. Each provider's
+walkthrough page (next to its file) shows the console settings that produce
+those values; the [CLI guide](https://docs.cascadeauth.com/cli/guide/) covers
+the registration ceremony and `aac sso register-idp --help` lists every field.
 
-| File | Provider | Placeholders |
-|---|---|---|
-| `entra.json` | Microsoft Entra ID | `ENTRA_DIRECTORY_ID` (Directory (tenant) ID), `ENTRA_APPLICATION_CLIENT_ID` (Application (client) ID), `ENTRA_ADMIN_GROUP_OBJECT_ID` (Object ID of the security group holding your AAC administrators) |
-| `okta.json` | Okta (Org Authorization Server) | `OKTA_ORG` (your Okta subdomain), `OKTA_CLIENT_ID` (Client ID of the Native application), `OKTA_ADMIN_GROUP_NAME` (name of the Okta group holding your AAC administrators) |
+| File | Provider | Console walkthrough | Placeholders |
+|---|---|---|---|
+| `entra.json` | Microsoft Entra ID | [entra.md](entra.md) | `ENTRA_DIRECTORY_ID` (Directory (tenant) ID), `ENTRA_APPLICATION_CLIENT_ID` (Application (client) ID), `ENTRA_ADMIN_GROUP_OBJECT_ID` (Object ID of the security group holding your AAC administrators) |
+| `okta.json` | Okta (Org Authorization Server) | [okta.md](okta.md) | `OKTA_ORG` (your Okta subdomain), `OKTA_CLIENT_ID` (Client ID of the Native application), `OKTA_ADMIN_GROUP_NAME` (name of the Okta group holding your AAC administrators) |
 
 Rules that hold for every file:
 
