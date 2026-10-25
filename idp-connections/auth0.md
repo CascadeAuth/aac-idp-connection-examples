@@ -64,9 +64,10 @@ aac sso whoami --profile prod --output table
 
 The sign-in prints a code and an Auth0 activation link; open the link,
 confirm the code, sign in, and the CLI caches the session. Approve promptly:
-Auth0's device code expires after a few minutes by default (a tenant setting
-under Settings → Advanced → Device User Code). `--idp-url` accepts the issuer
-with or without its trailing slash.
+the code can expire before you reach it (its lifetime is a tenant setting
+under Settings → Advanced → Device User Code), and the CLI then says
+"device code expired before the sign-in finished — run login again".
+`--idp-url` accepts the issuer with or without its trailing slash.
 
 ## If something fails
 
@@ -76,4 +77,4 @@ with or without its trailing slash.
 | AAC STS: `invalid_grant`, no roles derivable | The Action is not in the Login flow, the person holds no role, or `role_map` key differs from the role name | Steps 2 and 3; compare the names exactly |
 | Registration: discovery failed or issuer mismatch | Issuer without the trailing slash, or the wrong domain | Step 1 |
 | Auth0 403: Callback URL mismatch | `--flow pkce` was used | Use the device flow |
-| CLI: the device code expired | The code was approved too late | Run the sign-in again and approve at once |
+| CLI: `device code expired before the sign-in finished` | The code was approved too late | Run the sign-in again and approve at once |
