@@ -1,0 +1,8 @@
+{
+  "issuer": "https://login.microsoftonline.com/<ENTRA_DIRECTORY_ID>/v2.0",
+  "family": "entra",
+  "expected_audience": "<ENTRA_APPLICATION_CLIENT_ID>",
+  "binding_claims": {"tid": "<ENTRA_DIRECTORY_ID>"},
+  "groups_claim": "groups",
+  "role_map": {"<ENTRA_ADMIN_GROUP_OBJECT_ID>": ["tenant-admin"]}
+}

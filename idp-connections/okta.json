@@ -1,0 +1,7 @@
+{
+  "issuer": "https://<OKTA_ORG>.okta.com",
+  "family": "okta",
+  "expected_audience": "<OKTA_CLIENT_ID>",
+  "groups_claim": "groups",
+  "role_map": {"<OKTA_ADMIN_GROUP_NAME>": ["tenant-admin"]}
+}
