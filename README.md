@@ -1,4 +1,4 @@
-# AAC samples
+# AAC identity-provider connection examples
 
 Ready-to-edit input files for the [Agent Authority Cloud](https://cascadeauth.com/)
 (AAC) command-line tool. Each sample is complete except for the
@@ -11,7 +11,7 @@ Ready-to-edit input files for the [Agent Authority Cloud](https://cascadeauth.co
 How to use a sample:
 
 ```bash
-curl -fsSLO https://raw.githubusercontent.com/CascadeAuth/aac-samples/main/idp-connections/okta.json
+curl -fsSLO https://raw.githubusercontent.com/CascadeAuth/aac-idp-connection-examples/main/idp-connections/okta.json
 # replace every <PLACEHOLDER>, then
 aac sso register-idp --profile prod --tenant-id '<TENANT_ID>' --file okta.json
 ```
