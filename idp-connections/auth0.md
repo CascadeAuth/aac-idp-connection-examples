@@ -3,8 +3,8 @@
 What you end up with: an Auth0 application your people sign in to with the
 AAC command-line tool, an Auth0 role whose holders get AAC roles, a post-login
 Action that puts the role names into the ID token, and the three values that
-complete [`auth0.json`](auth0.json). Not yet field-verified; the live run
-updates this line.
+complete [`auth0.json`](auth0.json). Verified on 2026-10-25 with a free Auth0
+tenant and AAC CLI 0.2.16.
 
 ## 1. Create the application
 
@@ -19,7 +19,10 @@ Applications → Applications → Create Application: any name, application type
 
 Scroll to Advanced Settings → Grant Types and tick **Device Code** (keep
 Authorization Code; Refresh Token is not needed, AAC sessions do not
-refresh). Under the OAuth tab, **OIDC Conformant** stays on. Save.
+refresh). Under the OAuth tab, **OIDC Conformant** stays on. Save. Leave
+Allowed Callback URLs empty: AAC signs in with the device flow, which uses no
+redirect. Auth0 matches callback URLs exactly and the CLI's browser flow picks
+its port at run time, so `--flow pkce` does not work with Auth0.
 
 ## 2. Create the role and assign it
 
@@ -60,8 +63,10 @@ aac sso whoami --profile prod --output table
 ```
 
 The sign-in prints a code and an Auth0 activation link; open the link,
-confirm the code, and the CLI caches the session. `--idp-url` accepts the
-issuer with or without its trailing slash.
+confirm the code, sign in, and the CLI caches the session. Approve promptly:
+Auth0's device code expires after a few minutes by default (a tenant setting
+under Settings → Advanced → Device User Code). `--idp-url` accepts the issuer
+with or without its trailing slash.
 
 ## If something fails
 
@@ -70,3 +75,5 @@ issuer with or without its trailing slash.
 | Device code refused (`unauthorized_client`) | Device Code grant off | Step 1 |
 | AAC STS: `invalid_grant`, no roles derivable | The Action is not in the Login flow, the person holds no role, or `role_map` key differs from the role name | Steps 2 and 3; compare the names exactly |
 | Registration: discovery failed or issuer mismatch | Issuer without the trailing slash, or the wrong domain | Step 1 |
+| Auth0 403: Callback URL mismatch | `--flow pkce` was used | Use the device flow |
+| CLI: the device code expired | The code was approved too late | Run the sign-in again and approve at once |
