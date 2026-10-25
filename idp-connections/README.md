@@ -12,6 +12,7 @@ the registration ceremony and `aac sso register-idp --help` lists every field.
 |---|---|---|---|
 | `entra.json` | Microsoft Entra ID | [entra.md](entra.md) | `ENTRA_DIRECTORY_ID` (Directory (tenant) ID), `ENTRA_APPLICATION_CLIENT_ID` (Application (client) ID), `ENTRA_ADMIN_GROUP_OBJECT_ID` (Object ID of the security group holding your AAC administrators) |
 | `okta.json` | Okta (Org Authorization Server) | [okta.md](okta.md) | `OKTA_ORG` (your Okta subdomain), `OKTA_CLIENT_ID` (Client ID of the Native application), `OKTA_ADMIN_GROUP_NAME` (name of the Okta group holding your AAC administrators) |
+| `auth0.json` | Auth0 | [auth0.md](auth0.md) | `AUTH0_DOMAIN` (the application's Domain, for example `acme.us.auth0.com`, or your custom domain; the issuer keeps the trailing slash Auth0 declares), `AUTH0_CLIENT_ID` (Client ID of the Native application), `AUTH0_ADMIN_ROLE_NAME` (name of the Auth0 role held by your AAC administrators; a post-login Action copies role names into the `https://cascadeauth.com/roles` claim) |
 
 Rules that hold for every file:
 
