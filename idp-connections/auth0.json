@@ -1,0 +1,7 @@
+{
+  "issuer": "https://<AUTH0_DOMAIN>/",
+  "family": "auth0",
+  "expected_audience": "<AUTH0_CLIENT_ID>",
+  "groups_claim": "https://cascadeauth.com/roles",
+  "role_map": {"<AUTH0_ADMIN_ROLE_NAME>": ["tenant-admin"]}
+}
