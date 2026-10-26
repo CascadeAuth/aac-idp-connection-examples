@@ -1,0 +1,9 @@
+{
+  "issuer": "https://accounts.google.com",
+  "family": "google",
+  "expected_audience": "<GOOGLE_CLIENT_ID>",
+  "public_client_secret": "<GOOGLE_CLIENT_SECRET>",
+  "binding_claims": {"hd": "<WORKSPACE_DOMAIN>"},
+  "groups_claim": "email",
+  "role_map": {"<ADMIN_EMAIL>": ["tenant-admin"]}
+}
