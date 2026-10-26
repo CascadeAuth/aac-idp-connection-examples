@@ -6,7 +6,7 @@ Ready-to-edit input files for the [Agent Authority Cloud](https://cascadeauth.co
 
 | Directory | What the files are | Used by |
 |---|---|---|
-| [`idp-connections/`](idp-connections/) | One connection file per identity provider a tenant can bring, with a console walkthrough beside it: Microsoft Entra ID, Okta, Auth0. | `aac sso register-idp --file <file>` |
+| [`idp-connections/`](idp-connections/) | One connection file per identity provider a tenant can bring, with a console walkthrough beside it: Microsoft Entra ID, Okta, Auth0, Google Workspace. | `aac sso register-idp --file <file>` |
 
 How to use a sample:
 
