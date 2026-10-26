@@ -17,8 +17,9 @@ the registration ceremony and `aac sso register-idp --help` lists every field.
 
 Rules that hold for every file:
 
-- The placeholders are the only values to change. Every other field is the
-  shape AAC expects for that provider.
+- The placeholders are the only values to change; the one structural edit is
+  adding `role_map` entries (Google Workspace: one per administrator). Every
+  other field is the shape AAC expects for that provider.
 - `role_map` grants AAC roles to the groups in the identity token. The four
   roles are `tenant-admin`, `key-admin`, `policy-admin` and `auditor-read`;
   a person with none of the mapped groups cannot sign in. Google tokens
